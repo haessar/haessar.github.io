@@ -14,7 +14,10 @@ export async function getStaticPaths({ paginate }): Promise<Astro.getStaticPaths
             date: post.data.date,
             badge: post.data.tags[0],
             excerpt: trimExcerpt(post.data.excerpt),
-            slug: `${template.base}/blog/${post.id}`,
+            // slug: `${template.base}/blog/${post.id}`,
+			url: post.data.url,
+			publisher: post.data.publisher,
+			authors: post.data.authors,
         }))
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
@@ -35,7 +38,7 @@ const { page } = Astro.props
 						<div class='card-body'>
 							<div class='flex justify-between items-start'>
 								<h2 class='card-title text-xl'>
-                            <a href={post.slug} class='hover:text-accent'>
+                            <a href={post.url} target="_blank" class='hover:text-accent'>
 										{post.title}
 									</a>
 								</h2>
@@ -43,17 +46,26 @@ const { page } = Astro.props
 									{post.badge}
 								</div>
 							</div>
-							<time datetime={post.date} class='text-sm text-base-content/71'>
-								{new Date(post.date).toLocaleDateString('en-US', {
-									year: 'numeric',
-									month: 'long',
-									day: 'numeric',
-								})}
-							</time>
+							<div>
+								<div class='badge p-4'>
+									{post.publisher}
+								</div>
+								<time datetime={post.date} class='text-sm text-base-content/71'>
+									{new Date(post.date).toLocaleDateString('en-US', {
+										year: 'numeric',
+										month: 'long',
+										day: 'numeric',
+									})}
+								</time>
+								
+							</div>
+							<div>
+								<p>{post.authors.join(", ")}</p>
+							</div>
 							<p class='mt-4'>{post.excerpt}</p>
 							<div class='card-actions justify-end'>
 								<a
-                            href={post.slug}
+                            href={post.url} target="_blank"
 									class='btn btn-sm btn-secondary text-secondary-content'
 								>
 									Read More
