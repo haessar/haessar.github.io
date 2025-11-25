@@ -1,0 +1,64 @@
+---
+import Pagination from '@/components/ui/Pagination.astro'
+import Layout from "@/layouts/Layout.astro";
+import { publications } from "@/data/cv";
+import { highlightAuthor } from "@/lib/utils";
+import {template} from "@/settings";
+import { markdown } from '@astropub/md'
+
+export function getStaticPaths({ paginate }): Astro.getStaticPathsResult {
+    const ALL_PAPERS = publications // This will be replaced with dynamic data later
+      .sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
+    
+    return paginate(ALL_PAPERS, {
+      pageSize: template.papersPerPage,
+    });
+}
+
+const { page } = Astro.props
+---
+
+<Layout title="Papers">
+  <div class="prose max-w-none">
+    <h1 class="text-3xl font-bold mb-8">Publications</h1>
+
+    <div class="space-y-8">
+      {
+        page.data.map((paper) => (
+          <div class="card bg-base-200">
+            <div class="card-body">
+              <h2 class="card-title text-xl">
+                <a href={template.base + paper.link} class="hover:text-accent">
+                  {paper.title}
+                </a>
+              </h2>
+              <p class="text-base mb-2">
+                <span class="font-medium">Authors:</span>{" "}
+                <span set:html={highlightAuthor(paper.authors)} />
+              </p>
+              <p class="text-sm mb-3">
+                <span class="italic">{paper.journal}</span> • <time datetime={paper.time} class='text-sm text-base-content/71'>
+                                                                {new Date(paper.time).toLocaleDateString('en-GB', {
+                                                                    year: 'numeric',
+                                                                    month: 'long',
+                                                                    day: 'numeric',
+                                                                })}
+                                                            </time>
+              </p>
+              <span class="text-sm text-base-content/80">{markdown(paper.abstract)}</span>
+              <div class="card-actions justify-end mt-4">
+                <a href={paper.link} target="_blank" class="btn btn-sm btn-secondary text-secondary-content">
+                  Read Paper
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class='flex justify-center mt-8'>
+        <Pagination page={page} />
+    </div>
+  </div>
+</Layout>

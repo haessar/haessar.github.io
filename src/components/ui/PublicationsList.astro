@@ -2,6 +2,7 @@
 import { isSkill } from '@/types/cv';
 import type { Skill, Publication } from '@/types/cv';
 import { highlightAuthor } from '@/lib/utils'
+import { trimExcerpt } from '@/lib/utils';
 
 interface Props {
 	elements: (Skill | Publication)[]
@@ -34,11 +35,10 @@ const { elements } = Astro.props
         <span class='italic'>{element.journal}</span> •{' '}
         {element.time}
       </p>
-      <p>{element.abstract}</p>
+      <p>{trimExcerpt(element.abstract)}</p>
       </>
     }
-    {/* Uncomment this line to add a small border bottom for each element
-    {index !== elements.length -1 && <hr class="mt-6 border-primary/40" />}  */}
+    {index !== elements.length -1 && <hr class="mt-6 border-primary/40" />} 
     </li>
   ))}
 </ul>
