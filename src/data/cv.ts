@@ -1,42 +1,52 @@
 export const experiences = [
 	{
-		company: '',
-		time: '',
-		title: '',
-		location: '',
+		company: 'University of Glasgow',
+		time: 'Sep. 2024 - Present',
+		title: 'Research Software Engineer',
+		location: 'Glasgow, UK',
 		description: '',
 	},
-	// {
-	// 	company: 'Radium Institute (Institut du Radium)',
-	// 	time: '1914 - 1934',
-	// 	title: 'Director',
-	// 	location: 'Paris, France',
-	// 	description: 'Led groundbreaking studies on radioactivity and mentored future Nobel Prize laureates.',
-	// },
+	{
+		company: 'University of Glasgow',
+		time: 'Jun. 2021 - Aug. 2024',
+		title: 'Programmer / Data Analyst',
+		location: 'Glasgow, UK',
+		description: '',
+	},
+	{
+		company: 'Several companies in industry',
+		time: 'Mar. 2017 - May. 2021',
+		title: 'Python Developer / Data Analyst',
+		location: 'Around the UK',
+		description: '',
+	},
+	{
+		company: 'BAST Inc, Ltd',
+		time: 'Sep. 2014 - Feb. 2017',
+		title: 'Mathematical Modeller',
+		location: 'Loughborough, UK',
+		description: '',
+	}
 ];
 
 export const education = [
 	{
-		school: '',
-		time: '',
-		degree: '',
-		location: '',
+		school: 'Loughborough University',
+		time: '2011 - 2015',
+		degree: 'PhD in Mathematical Physics',
+		location: 'Loughborough, UK',
 		description: '',
 	},
-	// {
-	// 	school: 'University of Paris',
-	// 	time: '1891 - 1895',
-	// 	degree: 'Master’s in Physics and Mathematics',
-	// 	location: 'Paris, France',
-	// 	description: 'Graduated at the top of her class in physics and second in mathematics.',
-	// },
+	{
+		school: 'University of Leeds',
+		time: '2007 - 2011',
+		degree: 'MMath, BSc in Mathematics',
+		location: 'Leeds, UK',
+		description: '',
+	},
 ];
 
 export const skills = [
-	{
-		title: '',
-		description: '',
-	},
 	// {
 	// 	title: 'Experimental Techniques',
 	// 	description: 'Spectroscopy, Isolation of Radioactive Elements, Radiation Measurement',

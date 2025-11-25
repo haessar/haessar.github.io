@@ -1,8 +1,8 @@
 export const profile = {
-	fullName: 'Your Name',
-	title: '',
-	institute: '',
-	author_name: '', // Author name to be highlighted in the papers section
+	fullName: 'William Haese-Hill',
+	title: 'Research Software Engineer',
+	institute: 'University of Glasgow',
+	author_name: 'William Haese-Hill', // Author name to be highlighted in the papers section
 	research_areas: [
 		// { title: 'Physics', description: 'Brief description of the research interest', field: 'physics' },
 	],
@@ -11,14 +11,14 @@ export const profile = {
 // Set equal to an empty string to hide the icon that you don't want to display
 export const social = {
 	email: '',
-	linkedin: '',
-	x: 'https://www.x.com/',
-	github: '',
+	linkedin: 'https://www.linkedin.com/in/will-haese-hill-066a7426/',
+	x: '',
+	github: 'https://github.com/haessar',
 	gitlab: '',
-	scholar: '',
+	scholar: 'https://scholar.google.com/citations?user=2F8FlA8AAAAJ',
 	inspire: '',
 	arxiv: '',
-	orcid: '',
+	orcid: 'https://orcid.org/0000-0002-1393-0966',
 }
 
 export const template = {
