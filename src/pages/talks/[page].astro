@@ -1,0 +1,154 @@
+---
+import Pagination from '@/components/ui/Pagination.astro'
+import Layout from '@/layouts/Layout.astro'
+import { trimExcerpt } from '@/lib/utils'
+import { template } from '@/settings'
+import { getCollection, render } from 'astro:content'
+import { Image } from "astro:assets";
+import { markdown } from '@astropub/md'
+
+export async function getStaticPaths({ paginate }): Promise<Astro.getStaticPathsResult> {
+    const talkEntries = await getCollection("talks");
+
+    const talks = talkEntries
+        .map(talk => ({
+            title: talk.data.title,
+            date: talk.data.date,
+            badge: talk.data.tags[0],
+            summary: markdown(talk.data.summary),
+            // slug: `${template.base}/blog/${post.id}`,
+			abstract_url: talk.data.abstract_url,
+            recording_url: talk.data.recording_url,
+            slides_url: talk.data.slides_url,
+            speaker_image: talk.data.speaker_image,
+            speaker_image_alt: talk.data.speaker_image_alt,
+			publisher: talk.data.publisher,
+            location: talk.data.location,
+        }))
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    return paginate(talks, {
+        pageSize: template.postPerPage,
+    });
+}
+const { page } = Astro.props
+---
+
+<Layout title='Talks'>
+    <div>
+        <h1 class='text-3xl font-bold mb-8'>Recent & Upcoming Talks</h1>
+        <div class='grid gap-8'>
+            {
+                page.data.map(talk => (
+                    <article class='card bg-base-200 transition-all'>
+                        <div class='card-body'>
+                            <div class='flex justify-between items-start'>
+                                <h2 class='card-title text-xl'>
+                            <a href={talk.url} target="_blank" class='hover:text-accent'>
+                                        {talk.title}
+                                    </a>
+                                </h2>
+                                <div class='badge badge-accent badge-outline p-4'>
+                                    {talk.badge}
+                                </div>
+                            </div>
+                            <div>
+                                <div class='badge p-4'>
+                                    {talk.publisher}
+                                </div>
+                                <time datetime={talk.date} class='text-sm text-base-content/71'>
+                                    {new Date(talk.date).toLocaleDateString('en-US', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric',
+                                    })}
+                                </time>
+                                
+                            </div>
+                            <div>
+                                <p>{talk.location}</p>
+                            </div>
+                            <div>
+                                {talk.speaker_image && (
+                                    <Image
+                                    src={talk.speaker_image}
+                                    alt={talk.speaker_image_alt ?? `Photo from ${talk.title}`}
+                                    class="img-fluid float-end ms-3 mb-2 rounded-2"
+                                    style="max-width: 120px;"
+                                    loading="lazy"
+                                    />
+                                )}
+
+                                <div class='prose prose-invert max-w-none' set:html={talk.summary} />
+                            </div>
+                            <div class='card-actions justify-end'>
+                                {talk.abstract_url
+                                    && (
+                                        <a
+                                        href={talk.abstract_url} target="_blank"
+                                        class='btn btn-sm btn-danger'
+                                        >
+                                        Read More
+                                        </a>
+                                    )
+                                }
+                                {talk.recording_url
+                                    ? (
+                                        <a
+                                        href={talk.recording_url}
+                                        target="_blank"
+                                        class="btn btn-sm btn-secondary text-secondary-content"
+                                        >
+                                        Recording
+                                        </a>
+                                    ) : (
+                                        <span
+                                        class="btn btn-sm btn-secondary text-secondary-content opacity-50 cursor-not-allowed"
+                                        aria-disabled="true"
+                                        title="Recording not available"
+                                        >
+                                        Recording
+                                        </span>
+                                    )
+                                }
+                                {talk.slides_url 
+                                    ? (
+                                        <a
+                                            href={talk.slides_url}
+                                            class="btn btn-sm btn-secondary text-secondary-content"
+                                            target="_blank"
+                                            rel="noopener"
+                                        >
+                                            View slides
+                                        </a>
+                                    ) : (
+                                        <span
+                                            class="btn btn-sm btn-secondary opacity-50 cursor-not-allowed"
+                                            aria-disabled="true"
+                                            title="Slides not available"
+                                        >
+                                            View slides
+                                        </span>
+                                    )
+                                }
+                            </div>
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+        <br>
+        <div class="prose prose-invert" style="display: inline;">
+            <p>
+                Unless otherwise stated, slides on this page are © William Haese-Hill and licensed under
+                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">
+                    CC BY 4.0
+                </a>.
+            </p>
+        </div>
+        <div class='flex justify-center mt-8'>
+			<Pagination page={page} />
+		</div>
+        
+    </div>
+</Layout>
