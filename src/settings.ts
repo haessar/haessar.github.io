@@ -4,7 +4,21 @@ export const profile = {
 	institute: 'University of Glasgow',
 	author_name: 'William Haese-Hill', // Author name to be highlighted in the papers section
 	research_areas: [
-		// { title: 'Physics', description: 'Brief description of the research interest', field: 'physics' },
+		{ 
+			title: 'Genome annotation & comparative genomics',
+			description: 'I am interested in how we generate, assess and improve genome annotations, particularly in complex eukaryotic systems such as parasites. My work focuses on using comparative genomics, orthology, and transcriptomic evidence to evaluate annotation quality, benchmark automated approaches against curated standards, and highlight systematic patterns of misannotation that can be fed back into future assemblies and pipelines.',
+			field: 'biology'
+		},
+		{ 
+			title: 'Bioinformatics pipelines & FAIR research software',
+			description: 'A core strand of my work is developing and maintaining bioinformatics pipelines and software that turn biological data into reproducible, shareable analyses. This includes systems for genome annotation as well as workflows that standardise quality control, analysis and post-processing for data types such as bulk and single-cell RNA-seq. I emphasise FAIR research software principles in this work: modular design, semantic versioning, containerisation, automated testing and documentation, so that workflows can be installed and reused rather than remaining one-off scripts tied to a single project.',
+			field: 'engineering'
+		},
+		{
+			title: 'Interactive visualisation & web-based analysis tools',
+			description: 'My work also includes contributing to web-based tools that sit on top of complex genomic or clinical datasets and make them usable for researchers with limited coding experience. This involves helping to design and implement browser-based interfaces, guided workflows and integrated analyses that allow users to explore data, generate figures and interrogate results without managing infrastructure or writing scripts. A recurring focus is on ensuring that these tools remain transparent and reproducible, so that analyses can be revisited, compared and incorporated into wider research workflows.',
+			field: 'computer-science'
+		}
 	],
 }
 

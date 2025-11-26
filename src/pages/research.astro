@@ -14,10 +14,14 @@ const { research_areas } = profile;
 
     <div class="mb-12">
       <p class="text-lg mb-6">
-        My research focuses on groundbreaking investigations into radioactivity and the discovery of new radioactive elements. Through meticulous experimental techniques and innovative methodologies, I aim to advance our understanding of radioactive phenomena and their applications in both physics and chemistry.
+        My research focuses on developing robust, reusable software infrastructure for modern genomics and data-intensive life 
+        science. I have worked at the intersection of research software engineering, genome annotation and bioinformatics workflows,
+        building tools that make complex analyses reproducible, maintainable and easier for others to use.
       </p>
       <p class="text-lg mb-6">
-        This interdisciplinary approach has led to significant discoveries, including the isolation of polonium and radium, contributing to the foundation of modern nuclear physics and radiochemistry.
+        A recurring theme is turning fragile, one-off pipelines into sustainable platforms: modular workflows, containerisation, 
+        automated testing and clear documentation, developed in close collaboration with domain scientists. This improves the 
+        reliability of downstream biological insights and reduces the cost of keeping tools alive as methods and datasets evolve.
       </p>
     </div>
 
@@ -52,18 +56,56 @@ const { research_areas } = profile;
 
     <List listTitle="Current Projects" listItems={[
       {
-        title: "Radioactivity Studies",
-        description: "Investigation of radioactive properties in uranium minerals and isolation of new radioactive elements."
+        title: "Supporting manual annotation of helminth genomes",
+        description: "In Summer 2024 I carried out comparative genomics analysis to support an upcoming grant application. " +
+          "This involved comparing genome assembly and annotation quality of several automated tools " +
+          "against a \"gold-standard\" set of helminth reference genomes curated using manual means (e.g. genome browsers). " +
+          "The aim was to demonstrate the continued need to invest in platforms that facilitate manual annotation, by " +
+          "highlighting instances where automated methods consistently under-performed. In particular, I focused on exonic " +
+          "differences between orthologues of a set of closely related schistosome species, where high conservation would be " +
+          "expected. The results have mostly been written up in a draft paper which I hope to submit in the not-too-distant future."
       },
       {
-        title: "Measurement Techniques",
+        title: "Hackathon project: Improved visualisation of alternative splicing",
+        description: "I led a team of 10 bioinformaticians at the 2025 Glasgow CompBio Community Hackathon event to develop workflows " +
+          "for visualising evidence of alternative splicing. From the outset, we recognised that existing methods for " +
+          "displaying transcriptomic evidence (e.g. RNA-seq coverage tracks) don't clearly indicate where alternative transcripts might exist. " +
+          "We developed two complementary workflows, both implemented for compatability with the genome browser JBrowse 2: a plugin " +
+          "for rendering additional BED-format fields to indicate cell-type (colour) and strength of support (opacity) at splice " +
+          "junction sites; and a custom tag for aligned reads in BAM files to indicate \"most likely\" alternative transcript that they " +
+          "support, allowing reads to be sorted/coloured in JBrowse 2 using existing functionality to visually group supporting evidence. " +
+          "A publication capturing the analyis and hackathon context is in preparation."
+      },
+      {
+        title: "Apollo 3",
+        description: ""
+      },
+      {
+        title: "Melodramatick",
         description: "Development of precise methods for measuring radioactive emissions and their properties."
       }
     ]} />
 
     <h2 class="text-2xl font-bold mb-6">Research Impact</h2>
     <p class="text-lg mb-6">
-      My research has opened new frontiers in radioactivity studies, leading to practical applications in both scientific research and medical treatments. The discoveries have revolutionized our understanding of atomic structure and radioactive decay processes.
+      A central impact of my work is the development of research software that lowers the barrier to high-quality genomic analysis 
+      and is reused across multiple projects, groups and domains.
+    </p>
+    <p class="text-lg mb-6">
+      Tools that I have contributed to and continue to maintain include <a href="https://github.com/sii-companion/companion"
+      target="_blank"><em>Companion</em></a>, an automated annotation platform
+      that delivers high-quality structural and functional annotations within hours. <em>Companion</em> combines reference-guided
+      annotation with visualisation tools, and is accessible both as a <a href="https://companion.ac.uk/" target="_blank"> public
+      web server</a> and a maintained <a href="https://hub.docker.com/r/uofgiii/companion" target="_blank">Docker image</a>. Since
+      launch, it has been adopted by over 1,000 researchers worldwide, who have used it to annotate over 10,000 genomes across
+      parasitology, crop science, and ecology (See <a href="/papers/1">Papers</a>).      
+    </p>
+    <p class="text-lg mb-6">
+      Another tool, <a href="https://github.com/haessar/peaks2utr" target="_blank"><em>peaks2utr</em></a>, is a Python CLI for 
+      annotating 3′ untranslated regions (3′ UTRs) of mRNAs, which I developed from scratch. These regions regulate key mRNA-based
+      processes such as localisation, stability and translation, making them
+      important targets for functional inference. Since publication, <em>peaks2utr</em> has been downloaded thousands of times and has
+      attracted a growing number of citations.
     </p>
   </div>
 </Layout>
