@@ -47,12 +47,12 @@ export const education = [
 ];
 
 export const skills = [
-	{ title: 'Python', description: 'Django, numpy, pandas',},
+	{ title: 'Python', description: 'Django, NumPy, Pandas, Scanpy',},
 	{ title: 'TypeScript', description: 'React',},
 	{ title: 'R', description: 'Shiny, Seurat, tidyverse'},
 	{ title: 'Linux', description: 'Bash, nginx' },
 	{ title: 'Databases', description: 'SQL, NoSQL'},
-	{ title: 'Version control', description: 'git'},
+	{ title: 'Version control', description: 'git, GitHub'},
 ];
 
 export const publications = [
