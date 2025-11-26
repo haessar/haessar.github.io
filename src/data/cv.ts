@@ -47,10 +47,12 @@ export const education = [
 ];
 
 export const skills = [
-	// {
-	// 	title: 'Experimental Techniques',
-	// 	description: 'Spectroscopy, Isolation of Radioactive Elements, Radiation Measurement',
-	// },
+	{ title: 'Python', description: 'Django, numpy, pandas',},
+	{ title: 'TypeScript', description: 'React',},
+	{ title: 'R', description: 'Shiny, Seurat, tidyverse'},
+	{ title: 'Linux', description: 'Bash, nginx' },
+	{ title: 'Databases', description: 'SQL, NoSQL'},
+	{ title: 'Version control', description: 'git'},
 ];
 
 export const publications = [
