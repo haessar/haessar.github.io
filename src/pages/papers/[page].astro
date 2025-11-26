@@ -3,7 +3,7 @@ import Pagination from '@/components/ui/Pagination.astro'
 import Layout from "@/layouts/Layout.astro";
 import { publications } from "@/data/cv";
 import { highlightAuthor } from "@/lib/utils";
-import {template} from "@/settings";
+import { seo, template } from "@/settings";
 import { markdown } from '@astropub/md'
 
 export function getStaticPaths({ paginate }): Astro.getStaticPathsResult {
@@ -18,7 +18,7 @@ export function getStaticPaths({ paginate }): Astro.getStaticPathsResult {
 const { page } = Astro.props
 ---
 
-<Layout title="Papers">
+<Layout title={`${seo.default_title} | Papers`}>
   <div class="prose max-w-none">
     <h1 class="text-3xl font-bold mb-8">Publications</h1>
 

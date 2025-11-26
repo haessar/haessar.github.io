@@ -2,7 +2,7 @@
 import Pagination from '@/components/ui/Pagination.astro'
 import Layout from '@/layouts/Layout.astro'
 import { trimExcerpt } from '@/lib/utils'
-import { template } from '@/settings'
+import { seo, template } from '@/settings'
 import { getCollection } from 'astro:content'
 
 export async function getStaticPaths({ paginate }): Promise<Astro.getStaticPathsResult> {
@@ -28,7 +28,7 @@ export async function getStaticPaths({ paginate }): Promise<Astro.getStaticPaths
 const { page } = Astro.props
 ---
 
-<Layout title='Blog'>
+<Layout title={`${seo.default_title} | Blog`}>
     <div>
 		<h1 class='text-3xl font-bold mb-8'>Blog Posts</h1>
 		<div class='grid gap-8'>

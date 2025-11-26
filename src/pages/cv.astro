@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro'
 import { experiences, education, skills, publications } from '../data/cv'
 import CvTimeline from '@/components/ui/CvTimeline.astro'
+import { seo } from '@/settings'
 
 import type { Experience, Education, Publication } from '../types/cv'
 import List from '@/components/ui/List.astro'
@@ -45,7 +46,7 @@ if (publications.length > 0) {
 }
 ---
 
-<Layout>
+<Layout title={`${seo.default_title} | CV`}>
 	{
 		orderedEducations.length > 0 && (
 			<section class='mb-12'>
