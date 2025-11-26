@@ -10,10 +10,19 @@ const {fullName, title, institute, profilePicture} = Astro.props
   <h1 class='text-4xl font-bold mb-4'>
     Welcome! I'm <span class='text-secondary'>{fullName}</span>
   </h1>
-  <p class='text-xl text-gray-600 mb-4'>{title}{institute ? ` at ${institute}` : ''}</p>
+  <p class='text-xl text-gray-600 mb-4'>{title}{institute ? ` at the ${institute}` : ''}</p>
   <p class='text-lg mb-6'>
-    Brief impactful description of your research focus and academic mission.
-    Highlight your key contributions and areas of expertise.
+    I completed a PhD in Mathematical Physics in 2015, before spending a number of years in industry;
+    firstly as a mathematical/pharmocometric modeller in an oncology CRO, followed by several general
+    software development roles across various sectors, before finally making my way back to academia.
+  </p>
+  <p class='text-lg mb-6'>
+    Most of my programming knowledge was acquired "learning on the job", and refined through working
+    on various personal projects.
+  </p>
+  <p class='text-lg mb-6'>
+    In my current role, I work on research projects across the life sciences, as well as delivering
+    teaching and training on software engineering best practices in research.
   </p>
   <div class='flex gap-4'>
     <SocialIcons />
@@ -21,10 +30,10 @@ const {fullName, title, institute, profilePicture} = Astro.props
 </div>
 <div class='lg:block hidden'>
   <div class="w-56">
-  <Image
-    src={profilePicture}
-    alt={fullName}
+    <Image
+      src={profilePicture}
+      alt={fullName}
       class='h-full object-cover'
-  />
+    />
   </div>
 </div>

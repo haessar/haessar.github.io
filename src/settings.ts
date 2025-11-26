@@ -20,6 +20,15 @@ export const profile = {
 			field: 'computer-science'
 		}
 	],
+	interests: [
+		{ title: 'Bioinformatics', description: ''},
+		{ title: 'Full stack development', description: ''},
+		{ title: 'Sustainable computing', description: ''},
+		{ title: 'Automated workflows', description: ''},
+		{ title: 'Digital Humanities', description: ''},
+		{ title: 'Academic writing', description: ''},
+		{ title: 'Pipelines', description: ''},
+	]
 }
 
 // Set equal to an empty string to hide the icon that you don't want to display
