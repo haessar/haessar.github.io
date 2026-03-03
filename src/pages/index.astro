@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro'
 
 import { profile } from '@/settings'
 import { publications } from '@/data/cv'
+import { orderByTime } from '@/lib/utils'
 import ProfilePictures from '@/assets/avatar.jpg'
 import Hero from '@/components/ui/Hero.astro'
 import Grid from '@/components/ui/Grid.astro'
@@ -32,6 +33,6 @@ const { fullName, title, institute, interests } = profile
 
 	<!-- Latest Publications -->
 	<section class='py-12 border-t'>
-		<ArticleList listTitle='Latest Publications' listItems={publications.slice(0, 3)} />
+		<ArticleList listTitle='Latest Publications' listItems={orderByTime(publications).slice(0, 3)} />
 	</section>
 </Layout>
