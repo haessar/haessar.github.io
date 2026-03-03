@@ -57,6 +57,14 @@ export const skills = [
 
 export const publications = [
 	{
+		title: 'scReady - an automated and accessible pipeline for single-cell RNA-Seq preprocessing: Empowering novice bioinformaticians [version 1; peer review: 1 approved with reservations]',
+		authors: 'Domenico Somma, William Haese-Hill, Fiona Achcar, Yiyi Cheng, Scott Arkison, Thomas D Otto',
+		journal: 'Wellcome Open Research',
+		time: '2026-01-19',
+		link: 'https://doi.org/10.12688/wellcomeopenres.25152.1',
+		abstract: 'Single-cell RNA sequencing is a powerful technology that lets researchers see which genes are active in individual cells, and its use is growing rapidly. Between generating the raw data in the lab and performing the final analysis that reveals cell function, the data must undergo an essential "cleaning" step called preprocessing. This step reduces noise and enhances the true biological signal. However, this process can be tedious, demands significant computing skills, and mistakes or skipped steps can negatively affect all later results and slow down research. Our team, which includes both laboratory and bioinformatics scientists, developed a new software tool called scReady to help other researchers preprocess their single-cell RNA sequencing data. scReady performs all the essential cleaning steps in a standardized way. Researchers provide their raw data, set the main parameters for their analysis, and run a single command. The tool then produces a clean, analysis-ready dataset along with a report that details the steps performed. The main benefit of scReady is that it makes single-cell data analysis more reliable and accessible, especially for researchers with limited computing experience. This has the potential to accelerate discoveries in biology and medicine by allowing more scientists to confidently use single-cell technologies.'
+	},
+	{
 		title: 'Annotation and visualization of parasite, fungi and arthropod genomes with Companion',
 		authors: 'William Haese-Hill, Kathryn Crouch, Thomas D Otto',
 		journal: 'Nucleic Acids Research',
